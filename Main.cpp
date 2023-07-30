@@ -27,11 +27,11 @@ class Player: public Club{
         string playerName;
         int playerNumber, position, playerAge, season[20];
 
-        int goals, assists, cleanSheets, apps;
+        int goals, assists, cleanSheets, apps, seasonGoals[20], seasonAssists[20], seasonCleanSheets[20];
         float matchRating, averageMatchRating[20], totalAverageMatchRating;
 };
 
 int main(){
-    
+
     return 0;
 }
