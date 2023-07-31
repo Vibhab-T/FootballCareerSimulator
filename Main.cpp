@@ -10,7 +10,13 @@ class Continent{
 
 };
 
-class League: public Continent{
+class Nation: public Continent{
+    public:
+        int playerNationality;
+        float nationCoeff;
+};
+
+class League: public Nation{
     public:
         string leagueName;
         float permanentLeagueCoeff, seasonalLeagueCoeff;
@@ -20,15 +26,30 @@ class Club: public League{
     public:
         string clubName;
         float permanentClubCoeff, seasonalClubCoeff;
+
+    int generateClub(float totalAverageMatchRating, float seasonAverageMatchRating){
+        /*
+        
+            Generate 3 options for the players to pick. 
+            The average match rating stat will be used to generate clubs(only clubs with equivalent or lower permanentCoeff 
+            should be generated as options)
+
+            For the first initialization(picking first club){
+                two clubs from the same continent
+                one club from foreign continent
+            }
+        
+        */
+    }
 };
 
 class Player: public Club{
     public:
         string playerName;
-        int playerNumber, position, playerNationality, playerAge, season[20];
+        int playerNumber, position, playerAge, season[20];
 
         int goals, assists, cleanSheets, apps, seasonGoals[20], seasonAssists[20], seasonCleanSheets[20];
-        float matchRating, averageMatchRating[20], totalAverageMatchRating;
+        float matchRating, seasonAverageMatchRating[20], totalAverageMatchRating;
 
         Player(){}
 
@@ -50,6 +71,20 @@ class Player: public Club{
         }
 };
 
+class Season: public Player{
+    public:
+        int seasonNumber[20] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+
+        void simulateTwoSeasons(){
+            /*
+            
+                I HAVE NO IDEA HOW TO SIMULATE !!!
+            
+            */
+        }
+
+};
+
 int main(){
     string playerName;
     int playerNationality, position;
@@ -57,7 +92,7 @@ int main(){
     cout<<"Please enter your player name: ";
     cin>>playerName;
 
-    cout<<endl<<"1. Asian\n"<<"2. European\n"<<"3. African\n"<<"4. North American\n"<<"5. South American\n"<<endl;
+    cout<<endl<<"1. Asian\n"<<"2. European\n3. African\n4. North American\n5. South American\n"<<endl;
     cout<<"Please enter your nationality (1-5): ";
     cin>>playerNationality;
 
